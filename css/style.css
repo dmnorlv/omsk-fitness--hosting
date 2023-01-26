@@ -3060,6 +3060,20 @@ button,
   margin-right: auto;
 }
 
+.contacts__item:first-of-type {
+  position: relative;
+}
+
+.contacts__item:first-of-type::after {
+  position: absolute;
+  content: "";
+  width: 1px;
+  height: 250%;
+  background-color: #74819c;
+  top: 3px;
+  left: 135%;
+}
+
 .contacts__item h3 {
   margin: 0;
   font-size: 16px;
@@ -3710,6 +3724,7 @@ button,
 
   .personal {
     padding-top: 0;
+    padding-bottom: 100px;
   }
 
   .personal h2 {
@@ -3732,7 +3747,7 @@ button,
   }
 
   .advantages__wrapper {
-    padding-top: 100px;
+    padding-top: 90px;
     padding-left: 45px;
     padding-right: 45px;
   }
@@ -3923,6 +3938,11 @@ button,
     max-width: none;
   }
 
+  .contacts__item:first-of-type::after {
+    left: 122%;
+    height: 245%;
+  }
+
   .contacts__item h3 {
     font-size: 20px;
     line-height: 22px;
@@ -3984,11 +4004,6 @@ button,
 
   .page-footer__item-logo {
     margin-top: 0;
-  }
-
-  .page-footer__link {
-    font-size: 16px;
-    line-height: 18px;
   }
 
   .page-footer__social {
@@ -4510,6 +4525,10 @@ button,
     row-gap: 29px;
   }
 
+  .contacts__item:first-of-type::after {
+    display: none;
+  }
+
   .contacts__item {
     -webkit-box-ordinal-group: 2;
     -ms-flex-order: 1;
@@ -4569,6 +4588,7 @@ button,
   }
 
   .page-footer__nav {
+    width: auto;
     padding-left: 0;
     margin-bottom: 39px;
     display: -ms-grid;
@@ -4644,6 +4664,16 @@ button,
   .page-footer__item--schedule {
     -ms-grid-row: 5;
     -ms-grid-column: 3;
+  }
+
+  .page-footer__link {
+    font-size: 16px;
+    line-height: 18px;
+  }
+
+  .page-footer__social {
+    width: auto;
+    margin: 0;
   }
 
   .page-footer__logo-icon {
