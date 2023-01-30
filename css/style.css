@@ -1552,8 +1552,12 @@ button,
 
 .slider-btn {
   position: absolute;
-  height: 100%;
-  width: 40px;
+  height: -webkit-max-content;
+  height: -moz-max-content;
+  height: max-content;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -1562,7 +1566,6 @@ button,
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
   cursor: pointer;
-  border-radius: 4px;
 }
 
 .slider-btn svg {
@@ -1573,13 +1576,6 @@ button,
 
 .slider-btn--next svg {
   rotate: 180deg;
-}
-
-.slider-btn:hover,
-.slider-btn:focus {
-  background-color: rgb(248, 249, 252);
-  -webkit-box-shadow: 0 2px 8px 2px rgba(34, 60, 80, 0.2);
-  box-shadow: 0 2px 8px 2px rgba(34, 60, 80, 0.2);
 }
 
 .slider-btn:focus {
@@ -1603,7 +1599,7 @@ button,
 }
 
 .page-header {
-  padding-top: 30px;
+  padding-top: 37px;
   padding-bottom: 51px;
   color: #ffffff;
   background: conic-gradient(from 130.31deg at 16.03% 39.06%, #b80027 -46.69deg, #003d85 32.24deg, #b80027 313.31deg, #003d85 392.24deg);
@@ -1613,28 +1609,39 @@ button,
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: flex-start;
+  -webkit-column-gap: 25px;
+  -moz-column-gap: 25px;
+  column-gap: 25px;
+  row-gap: 15px;
+}
+
+.page-header__links-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse;
+  justify-items: flex-start;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.page-header__logo-link {
-  margin-top: 10px;
-}
-
-.page-header__nav-list {
+  max-width: 830px;
+  gap: 15px;
+  -webkit-column-gap: 30px;
+  -moz-column-gap: 30px;
+  column-gap: 30px;
   margin: 0;
   padding: 0;
   list-style-type: none;
   margin-top: -8px;
+  margin-left: auto;
 }
 
-.page-header__nav-list a {
+.page-header__links-wrapper a {
   color: #ffffff;
   letter-spacing: 0.03em;
   font-family: "Alumni Sans", "Arial", sans-serif;
@@ -1643,20 +1650,25 @@ button,
   line-height: 31px;
 }
 
-.page-header__nav-list a:hover,
-.page-header__nav-list a:focus {
+.page-header__links-wrapper a:hover,
+.page-header__links-wrapper a:focus {
   text-decoration: underline;
 }
 
-.page-header__nav-list a:focus {
+.page-header__links-wrapper a:focus {
   outline: 1px solid #ffffff;
   outline-offset: 4px;
 }
 
-.page-header__nav-list a:active {
+.page-header__links-wrapper a:active {
   text-decoration: none;
   outline: none;
   opacity: 0.7;
+}
+
+.page-header__nav .page-header__logo-link {
+  margin-left: 0;
+  margin-top: 3px;
 }
 
 .page-header__content {
@@ -1743,6 +1755,7 @@ button,
   user-select: none;
   text-align: center;
   color: #ffffff;
+  max-width: 234px;
 }
 
 .page-header__content-info-btn:hover,
@@ -1762,7 +1775,7 @@ button,
 
 .page-header__content-img-container {
   margin-left: 64px;
-  margin-top: -18px;
+  margin-top: 0;
   max-width: 500px;
   margin-right: auto;
 }
@@ -1846,8 +1859,7 @@ button,
 .gym__video-container {
   position: relative;
   width: 100%;
-  height: 0;
-  padding-bottom: 56.25%;
+  height: 100%;
   background-color: #000000;
 }
 
@@ -1977,9 +1989,6 @@ button,
   -webkit-box-direction: normal;
   -ms-flex-direction: column;
   flex-direction: column;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
   height: 65.6%;
   top: 6.6%;
   left: 50%;
@@ -2490,7 +2499,8 @@ button,
   -webkit-box-align: center;
   -ms-flex-align: center;
   align-items: center;
-  height: 294px;
+  max-height: 294px;
+  height: 21.5226939971vw;
   background-attachment: fixed;
   background-color: #102654;
   background-image: url("../img/svg/traner-background.svg");
@@ -2556,11 +2566,16 @@ button,
 }
 
 .personal__button-prev {
-  left: -67px;
+  left: -57px;
 }
 
 .personal__button-next {
-  right: -67px;
+  right: -57px;
+}
+
+.personal__swiper-slide:focus {
+  outline: 3px solid #ed0233;
+  outline-offset: -3px;
 }
 
 .advantages {
@@ -2994,15 +3009,18 @@ button,
   box-shadow: 0 0 40px rgba(28, 51, 116, 0.2);
   padding: 62px;
   padding-top: 60px;
-  padding-bottom: 60px;
+  padding-bottom: 20px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
+  height: 245px;
+  overflow-y: auto;
 }
 
 .reviews__slide-avatar {
+  width: 80px;
   -ms-flex-item-align: start;
   align-self: flex-start;
   -webkit-box-flex: 0;
@@ -3049,6 +3067,8 @@ button,
 
 .communication {
   margin-top: 70px;
+  position: relative;
+  z-index: 2;
 }
 
 .communication__wrapper {
@@ -3332,7 +3352,7 @@ button,
   color: #ffffff;
   background-color: #030a1a;
   padding-top: 47px;
-  padding-bottom: 40px;
+  padding-bottom: 35px;
 }
 
 .page-footer__wrapper {
@@ -3497,7 +3517,7 @@ button,
   }
 
   .personal__swiper-slide[data-worker-name=Павлова].visible {
-    background-image: url("../img/mobile/trainer1-1x.webp");
+    background-image: url("../img/mobile/trainer3-1x.webp");
   }
 
   .personal__swiper-slide[data-worker-name=Лавров].visible {
@@ -3515,7 +3535,7 @@ button,
   }
 
   .personal__swiper-slide[data-worker-name=Павлова].visible {
-    background-image: url("../img/mobile/trainer1-2x.webp");
+    background-image: url("../img/mobile/trainer3-2x.webp");
   }
 
   .personal__swiper-slide[data-worker-name=Лавров].visible {
@@ -3560,6 +3580,10 @@ button,
 }
 
 @media (min-width: 1200px) {
+  .page-header__nav-js {
+    margin-bottom: 20px;
+  }
+
   .personal__swiper-slide[data-worker-name=Пашков].visible {
     background-image: url("../img/desktop/trainer3-1x.webp");
   }
@@ -3595,23 +3619,17 @@ button,
   }
 }
 
-@media (min-width: 1366px) {
-  .communication {
-    position: relative;
-    z-index: 2;
-    background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #102654), color-stop(50%, #ffffff));
-    background-image: -o-linear-gradient(left, #102654 50%, #ffffff 50%);
-    background-image: linear-gradient(90deg, #102654 50%, #ffffff 50%);
+@media (min-width: 1338px) {
+  .page-header__content-img-container-js {
+    margin-top: -18px;
   }
 }
 
-@media (max-width: 1365px) {
-  .page-header__nav {
-    margin-bottom: 10px;
-  }
-
-  .page-header__content-img-container {
-    margin-top: 0;
+@media (min-width: 1366px) {
+  .communication {
+    background-image: -webkit-gradient(linear, left top, right top, color-stop(50%, #102654), color-stop(50%, #ffffff));
+    background-image: -o-linear-gradient(left, #102654 50%, #ffffff 50%);
+    background-image: linear-gradient(90deg, #102654 50%, #ffffff 50%);
   }
 }
 
@@ -3630,20 +3648,20 @@ button,
     margin-bottom: 17px;
   }
 
-  .page-header__logo-link {
-    margin-top: 0;
-  }
-
   .page-header__logo-icon {
     width: 82px;
     height: 17px;
   }
 
-  .page-header__nav-list a {
+  .page-header__links-wrapper a {
     font-weight: 700;
     font-size: 24px;
     line-height: 29px;
     letter-spacing: 0.02em;
+  }
+
+  .page-header__nav .page-header__logo-link {
+    margin-top: 0;
   }
 
   .page-header__content-info {
@@ -3849,6 +3867,11 @@ button,
     text-align: center;
   }
 
+  .promo__date-wrapper {
+    margin-left: 36px;
+    margin-right: auto;
+  }
+
   .promo__date {
     margin-bottom: 9px;
   }
@@ -3896,6 +3919,10 @@ button,
     width: 56.9321533923%;
   }
 
+  .promo__photo img {
+    width: 100%;
+  }
+
   .personal {
     padding-top: 0;
     padding-bottom: 100px;
@@ -3913,6 +3940,7 @@ button,
   }
 
   .personal__swiper-slide {
+    max-height: none;
     height: 38.28125vw;
   }
 
@@ -3950,6 +3978,7 @@ button,
   }
 
   .advantages__item--inventory {
+    min-height: 207px;
     max-width: none;
     width: 65.59%;
     padding: 30px 120px;
@@ -4073,7 +4102,6 @@ button,
 
   .communication {
     margin-top: 50px;
-    margin-bottom: 50px;
   }
 
   .communication__wrapper {
@@ -4091,6 +4119,7 @@ button,
     padding-top: 63px;
     padding-left: 133px;
     padding-right: 179px;
+    padding-bottom: 65px;
     max-width: none;
     width: 100%;
   }
@@ -4110,6 +4139,10 @@ button,
     row-gap: 30px;
     margin: 0 auto;
     max-width: none;
+  }
+
+  .contacts__list::after {
+    left: 58.4%;
   }
 
   .contacts__item h3 {
@@ -4162,6 +4195,7 @@ button,
     padding-left: 38px;
     padding-right: 39px;
     padding-top: 48px;
+    padding-bottom: 42px;
   }
 
   .page-footer__nav {
@@ -4176,7 +4210,7 @@ button,
   }
 
   .page-footer__social {
-    width: 14.0376266281%;
+    width: 18.8133140376%;
     margin-left: auto;
   }
 }
@@ -4187,19 +4221,9 @@ button,
     padding-right: 15px;
   }
 
-  .slider-btn {
-    width: 25px;
-  }
-
   .slider-btn svg {
     width: 10px;
     height: 19px;
-  }
-
-  .slider-btn:hover,
-  .slider-btn:focus {
-    -webkit-box-shadow: 0 1px 4px 1px rgba(34, 60, 80, 0.2);
-    box-shadow: 0 1px 4px 1px rgba(34, 60, 80, 0.2);
   }
 
   .page-header {
@@ -4207,18 +4231,22 @@ button,
     padding-bottom: 78px;
   }
 
-  .page-header__logo-link {
-    margin-top: -2px;
-  }
-
   .page-header__logo-icon {
     width: 69px;
   }
 
-  .page-header__nav-list a {
+  .page-header__links-wrapper {
+    margin-top: -5px;
+  }
+
+  .page-header__links-wrapper a {
     font-weight: 600;
     font-size: 20px;
     line-height: 24px;
+  }
+
+  .page-header__nav .page-header__logo-link {
+    margin-top: -2px;
   }
 
   .page-header__content {
@@ -4251,6 +4279,7 @@ button,
 
   .page-header__content-info-btn {
     margin-right: 0;
+    max-width: none;
     width: 100%;
   }
 
@@ -4330,7 +4359,7 @@ button,
 
   .products__tabs-js {
     width: 100%;
-    gap: 0;
+    gap: 35px;
     margin-bottom: 35px;
   }
 
@@ -4412,11 +4441,6 @@ button,
   .promo__photo {
     width: 100%;
     max-width: 560px;
-  }
-
-  .promo__photo img {
-    width: 100%;
-    height: auto;
   }
 
   .personal {
@@ -4619,6 +4643,7 @@ button,
   }
 
   .reviews__slide {
+    height: 335px;
     position: relative;
     padding: 25px;
     padding-top: 48px;
@@ -4697,6 +4722,10 @@ button,
     grid-template-columns: auto;
     margin: 0;
     row-gap: 29px;
+  }
+
+  .contacts__list::after {
+    display: none;
   }
 
   .contacts__item {
@@ -4842,6 +4871,7 @@ button,
   }
 
   .page-footer__social {
+    padding-left: 0;
     width: auto;
     margin: 0;
   }
